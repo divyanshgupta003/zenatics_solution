@@ -1,0 +1,11 @@
+.SearchList{
+    width: 100%;
+    box-sizing: border-box;
+    border-top: none;
+    text-align: left;
+    padding: 0px 10%;
+    box-shadow: 7px 5px 10px #ccc, -7px 0px 10px #ccc ;
+}
+.listItem{
+    font-size: 20px;
+}

@@ -1,0 +1,13 @@
+.Button{
+    box-sizing: border-box;
+    /* padding : 10px; */
+    height: 30px;
+    min-width: 110px;
+    margin-left: 30px;
+    background: rgb(19,17,17);
+    background: linear-gradient(350deg, rgba(19,17,17,1) 2%, rgba(217,14,14,1) 94%);
+    outline: none;
+    color: white;
+    border: 1px solid black;
+    box-shadow: 2px 2px 10px #ccc;
+}

@@ -1,0 +1,12 @@
+.InputTag{
+    box-sizing: border-box;
+    border : 1px solid black;
+    border-radius: 15px;
+    border-bottom: 3px solid black;
+    padding: 15px;
+    font-size: 20px;
+    outline: none;
+    height: 30px;
+    font-weight: 700;
+    width: 100%;
+}

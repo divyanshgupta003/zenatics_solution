@@ -1,0 +1,14 @@
+.SearchBarContainer{
+    max-width: 100vw;
+    padding : 0px 10%;
+    /* background-color: yellow; */
+}
+.SearchBarOuterDiv{
+    display: flex;
+    justify-content: center;
+}
+.InputContainer{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}

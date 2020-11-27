@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+.designHeader{
+  background: rgb(19,17,17);
+  background: linear-gradient(350deg, rgba(19,17,17,1) 2%, rgba(217,14,14,1) 94%);
+  width: 100vw;
+  height: 100px;
+}
+
+.SearchBar{
+  margin-top: 50px;
+}
