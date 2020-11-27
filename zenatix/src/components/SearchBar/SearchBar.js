@@ -1,22 +1,22 @@
 import React,{Component} from 'react';
+import {connect} from 'react-redux';
+
 import styles from './searchBar.module.css';
 import InputTag from '../InputTag/InputTag';
 import SearchList from '../SearchList/SearchList';
 import Button from '../Button/Button';
 
+
 class SearchBar extends Component{
     state = {
-        oldSearches : ['divyansh', 'jeeny','an','fn','yn','hn'],
         inputValue : '',
         filteredList : [],
-        guessShow : true,
         listShow : false
     } 
     //finding our matches for the inputValue
     filterListOnChange = ()=>{
-        if(this.state.inputValue.trim().length === 0) return;
 
-        const oldList = [...this.state.oldSearches];
+        const oldList = [...this.props.oldSearches];
 
         const newFilteredList = oldList.filter((input,index) =>{
             let matchString = input.toLowerCase().match(this.state.inputValue.toLowerCase());
@@ -28,16 +28,18 @@ class SearchBar extends Component{
     }
     //function for two way binding in inputfield
     inputChange = async (event)=>{
-        await this.setState({inputValue : event.target.value, listShow : true});
+        await this.setState({inputValue : event.target.value});
         // console.log(this.state.inputValue + " " + event.target.value.length);
 
-        this.filterListOnChange(this.state.oldSearches);
+        if(event.target.value.length === 0) this.setState({listShow : false});
+        else this.setState({listShow : true});
+
+        this.filterListOnChange(this.props.oldSearches);
     }
     //function for adding an element in the array
     onSubmit = async ()=>{
-        let oldSearchesCopy = [...this.state.oldSearches];
-        await oldSearchesCopy.push(this.state.inputValue);
-        await this.setState({inputValue : '', oldSearches : oldSearchesCopy});
+        this.props.onSubmit(this.state.inputValue);
+        await this.setState({inputValue : ''});
     }
     //search guess hides when the user is not searching
     onBlur = ()=>{
@@ -65,4 +67,17 @@ class SearchBar extends Component{
     }
 }
 
-export default SearchBar;
+//collecting state data from reducer
+const mapStateToProps = state=>{
+    return{
+        oldSearches : state.oldSearches
+    }
+}
+
+const mapDispatchToProps = dispatch =>{
+    return {
+        onSubmit : (inputValue)=> dispatch({type : 'ONSUBMIT', inputValue : inputValue})
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SearchBar);
