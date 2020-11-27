@@ -1,4 +1,4 @@
-# zenatics_solution
+# zenatix_solution
 
 - Download the code file and then traverse to the zenatix folder 
 
